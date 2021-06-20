@@ -29,6 +29,6 @@ def extract_indeed_jobs(last_page):
     soup = BeautifulSoup(result.text, "html.parser")
     results = soup.find_all("div",{"class":"jobsearch-SerpJobCard"})
     for result in results:
-        jobtitle = result.find("h2",{"class":"title"}) #.find("a")["title"]
-        print(jobtitle.find("a").string)
+        title = result.find("h2",{"class":"title"}).find("a")["title"]
+        print(title)
     return jobs
